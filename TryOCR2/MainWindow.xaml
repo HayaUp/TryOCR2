@@ -24,13 +24,16 @@
         <Button
             Grid.Row="0"
             Grid.Column="0"
+            Name="ReadPictureButton"
             Content="画像参照"/>
         <TextBlock
             Grid.Row="1"
-            Grid.Column="0"/>
+            Grid.Column="0"
+            Name="PictureFilePathTextBlock"/>
         <Image
             Grid.Row="2"
-            Grid.Column="0"/>
+            Grid.Column="0"
+            Name="TargetPictureImage"/>
 
         <Grid
             Grid.Row="0"
@@ -42,9 +45,11 @@
 
             <Button
                 Grid.Column="0"
+                Name="CharacterRecognitionButton"
                 Content="文字認識"/>
             <Button
                 Grid.Column="1"
+                Name="CopyToClipboardButton"
                 Content="クリップボードへコピー"/>
         </Grid>
         
@@ -56,7 +61,7 @@
         <ScrollViewer
             Grid.Row="2"
             Grid.Column="1">
-            <TextBlock/>
+            <TextBlock Name="CharacterRecognitionResultTextBlock"/>
         </ScrollViewer>
     </Grid>
 </Window>
