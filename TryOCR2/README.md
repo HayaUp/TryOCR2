@@ -18,6 +18,14 @@
 - 認識した文字を表示する
 - 認識した文字をクリップボードにコピーする
 
+## 問題
+
+- Nugetで`Microsoft.Windows.SDK.Contracts`をインストールしたら次のエラーが発生した
+```
+重大度レベル	コード	説明	プロジェクト	ファイル	行	抑制状態
+エラー	NETSDK1135	SupportedOSPlatformVersion 10.0.22621.0 を TargetPlatformVersion 7.0 より大きくすることはできません。	TryOCR2	C:\Program Files\dotnet\sdk\5.0.416\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.TargetFrameworkInference.targets	185	
+```
+
 ## 参考
 
 - 【C#】文字認識をWindows10のOCRでやってみた！
