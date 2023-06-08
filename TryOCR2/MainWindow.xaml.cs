@@ -97,5 +97,10 @@ namespace TryOCR2
 
             CharacterRecognitionResultTextBlock.Text = message.ToString();
         }
+
+        private void CopyToClipboardButton_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(CharacterRecognitionResultTextBlock.Text);
+        }
     }
 }

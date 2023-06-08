@@ -48,3 +48,8 @@
   - https://dobon.net/vb/dotnet/form/openfiledialog.html
 - 特殊ディレクトリのパスを取得する
   - https://dobon.net/vb/dotnet/file/getfolderpath.html
+
+### クリップボード
+
+- Clipboard クラス
+  - https://learn.microsoft.com/ja-jp/dotnet/api/system.windows.clipboard?view=windowsdesktop-7.0

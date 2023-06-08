@@ -52,7 +52,8 @@
             <Button
                 Grid.Column="1"
                 Name="CopyToClipboardButton"
-                Content="クリップボードへコピー"/>
+                Content="クリップボードへコピー"
+                Click="CopyToClipboardButton_Click"/>
         </Grid>
         
         <Label
