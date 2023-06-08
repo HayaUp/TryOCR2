@@ -39,7 +39,7 @@ namespace TryOCR2
         {
             var file_dialog = new Microsoft.Win32.OpenFileDialog()
             {
-                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures),
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop),
                 DefaultExt = ".png",
                 Filter = "PNG (.png)|*.png",
             };
