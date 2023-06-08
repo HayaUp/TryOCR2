@@ -7,3 +7,8 @@
 - C#
 - WPF
 - .NET5
+
+## 参考
+
+- 【C#】文字認識をWindows10のOCRでやってみた！
+  - https://marunaka-blog.com/wpf-ocr-windows10/2260/
