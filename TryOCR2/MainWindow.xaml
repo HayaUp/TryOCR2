@@ -25,7 +25,8 @@
             Grid.Row="0"
             Grid.Column="0"
             Name="ReadImageButton"
-            Content="画像参照"/>
+            Content="画像参照"
+            Click="ReadImageButton_Click"/>
         <TextBlock
             Grid.Row="1"
             Grid.Column="0"
