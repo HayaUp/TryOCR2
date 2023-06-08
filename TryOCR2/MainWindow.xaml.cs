@@ -13,6 +13,10 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+using Windows.Graphics.Imaging;
+using Windows.Media.Ocr;
+using System.IO;
+
 namespace TryOCR2
 {
     /// <summary>
@@ -45,8 +49,46 @@ namespace TryOCR2
                 var image_file_path = file_dialog.FileName;
                 ImageFilePathTextBlock.Text = image_file_path;
 
-                TargetImage.Source = BitmapFrame.Create(new Uri(image_file_path));
+                TargetImage.Source = System.Windows.Media.Imaging.BitmapFrame.Create(new Uri(image_file_path));
             }
+        }
+
+        private async Task<SoftwareBitmap> ConvertSoftwareBitmap(Image image)
+        {
+            SoftwareBitmap sbitmap = null;
+
+            using(MemoryStream stream = new MemoryStream())
+            {
+                //BmpBitmapEncoderに画像を書きこむ
+                var encoder = new BmpBitmapEncoder();
+                encoder.Frames.Add((System.Windows.Media.Imaging.BitmapFrame)image.Source);
+                encoder.Save(stream);
+
+                //メモリストリームを変換
+                var irstream = WindowsRuntimeStreamExtensions.AsRandomAccessStream(stream);
+
+                //画像データをSoftwareBitmapに変換
+                var decorder = await Windows.Graphics.Imaging.BitmapDecoder.CreateAsync(irstream);
+                sbitmap = await decorder.GetSoftwareBitmapAsync();
+            }
+
+            return sbitmap;
+        }
+
+        private async Task<OcrResult> RunOcr(SoftwareBitmap sbitmap)
+        {
+            //OCRを実行する
+            OcrEngine engine = OcrEngine.TryCreateFromLanguage(new Windows.Globalization.Language("ja-JP"));
+            var result = await engine.RecognizeAsync(sbitmap);
+            return result;
+        }
+
+        private async void CharacterRecognitionButton_Click(object sender, RoutedEventArgs e)
+        {
+            var software_bitmap = await ConvertSoftwareBitmap(TargetImage);
+            var result = await RunOcr(software_bitmap);
+
+            CharacterRecognitionResultTextBlock.Text = result.Text;
         }
     }
 }

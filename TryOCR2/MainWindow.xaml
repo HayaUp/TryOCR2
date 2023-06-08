@@ -47,7 +47,8 @@
             <Button
                 Grid.Column="0"
                 Name="CharacterRecognitionButton"
-                Content="文字認識"/>
+                Content="文字認識"
+                Click="CharacterRecognitionButton_Click"/>
             <Button
                 Grid.Column="1"
                 Name="CopyToClipboardButton"
