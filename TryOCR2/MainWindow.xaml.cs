@@ -88,7 +88,14 @@ namespace TryOCR2
             var software_bitmap = await ConvertSoftwareBitmap(TargetImage);
             var result = await RunOcr(software_bitmap);
 
-            CharacterRecognitionResultTextBlock.Text = result.Text;
+            var message = new StringBuilder();
+            for(int i = 0; i < result.Lines.Count; i++)
+            {
+                var line = result.Lines[i];
+                message.AppendLine(line.Text);
+            }
+
+            CharacterRecognitionResultTextBlock.Text = message.ToString();
         }
     }
 }
