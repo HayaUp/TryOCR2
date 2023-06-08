@@ -21,7 +21,7 @@ namespace TryOCR2.Model
         public async Task<SoftwareBitmap> ConvertSoftwareBitmap(Image image)
         {
             // 画像を参照していない状態で実行するとNull参照によるエラーが発生
-            if(image == null)
+            if(image.Source == null)
             {
                 return null;
             }
@@ -53,6 +53,11 @@ namespace TryOCR2.Model
         /// <returns></returns>
         public async Task<OcrResult> Run(SoftwareBitmap software_bitmap)
         {
+            if(software_bitmap == null)
+            {
+                return null;
+            }
+
             //OCRを実行する
             OcrEngine engine = OcrEngine.TryCreateFromLanguage(new Windows.Globalization.Language("ja-JP"));
             var result = await engine.RecognizeAsync(software_bitmap);
@@ -66,6 +71,11 @@ namespace TryOCR2.Model
         /// <returns></returns>
         public string ResultMultilineText(OcrResult ocr_result)
         {
+            if(ocr_result == null)
+            {
+                return "認識できる文字はありません。";
+            }
+
             var message = new StringBuilder();
             for(int i = 0; i < ocr_result.Lines.Count; i++)
             {
