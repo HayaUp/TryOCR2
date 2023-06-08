@@ -14,7 +14,7 @@ namespace TryOCR2.Model
     public class OCR
     {
         /// <summary>
-        /// RunOcrで利用するSoftwareBitmapを作成する
+        /// Runで利用するSoftwareBitmapをImageから変換する
         /// </summary>
         /// <param name="image"></param>
         /// <returns></returns>
