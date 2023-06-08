@@ -22,3 +22,5 @@
 
 - 【C#】文字認識をWindows10のOCRでやってみた！
   - https://marunaka-blog.com/wpf-ocr-windows10/2260/
+- コモン ダイアログ ボックスを開く方法 (WPF .NET)
+  - https://learn.microsoft.com/ja-jp/dotnet/desktop/wpf/windows/how-to-open-common-system-dialog-box?view=netdesktop-7.0
