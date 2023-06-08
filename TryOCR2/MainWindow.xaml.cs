@@ -53,50 +53,11 @@ namespace TryOCR2
             }
         }
 
-        /// <summary>
-        /// RunOcrで利用するSoftwareBitmapを作成する
-        /// </summary>
-        /// <param name="image"></param>
-        /// <returns></returns>
-        private async Task<SoftwareBitmap> ConvertSoftwareBitmap(Image image)
-        {
-            SoftwareBitmap sbitmap = null;
-
-            using(MemoryStream stream = new MemoryStream())
-            {
-                //BmpBitmapEncoderに画像を書きこむ
-                var encoder = new BmpBitmapEncoder();
-                encoder.Frames.Add((System.Windows.Media.Imaging.BitmapFrame)image.Source);
-                encoder.Save(stream);
-
-                //メモリストリームを変換
-                var irstream = WindowsRuntimeStreamExtensions.AsRandomAccessStream(stream);
-
-                //画像データをSoftwareBitmapに変換
-                var decorder = await Windows.Graphics.Imaging.BitmapDecoder.CreateAsync(irstream);
-                sbitmap = await decorder.GetSoftwareBitmapAsync();
-            }
-
-            return sbitmap;
-        }
-
-        /// <summary>
-        /// 画像から文字を認識する
-        /// </summary>
-        /// <param name="software_bitmap"></param>
-        /// <returns></returns>
-        private async Task<OcrResult> RunOcr(SoftwareBitmap software_bitmap)
-        {
-            //OCRを実行する
-            OcrEngine engine = OcrEngine.TryCreateFromLanguage(new Windows.Globalization.Language("ja-JP"));
-            var result = await engine.RecognizeAsync(software_bitmap);
-            return result;
-        }
-
         private async void CharacterRecognitionButton_Click(object sender, RoutedEventArgs e)
         {
-            var software_bitmap = await ConvertSoftwareBitmap(TargetImage);
-            var result = await RunOcr(software_bitmap);
+            var ocr = new Model.OCR();
+            var software_bitmap = await ocr.ConvertSoftwareBitmap(TargetImage);
+            var result = await ocr.Run(software_bitmap);
 
             var message = new StringBuilder();
             for(int i = 0; i < result.Lines.Count; i++)
