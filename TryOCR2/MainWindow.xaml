@@ -24,16 +24,16 @@
         <Button
             Grid.Row="0"
             Grid.Column="0"
-            Name="ReadPictureButton"
+            Name="ReadImageButton"
             Content="画像参照"/>
         <TextBlock
             Grid.Row="1"
             Grid.Column="0"
-            Name="PictureFilePathTextBlock"/>
+            Name="ImageFilePathTextBlock"/>
         <Image
             Grid.Row="2"
             Grid.Column="0"
-            Name="TargetPictureImage"/>
+            Name="TargetImage"/>
 
         <Grid
             Grid.Row="0"
