@@ -5,11 +5,16 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local="clr-namespace:TryOCR2"
+    xmlns:vm="clr-namespace:TryOCR2.ViewModel"
     mc:Ignorable="d"
     Title="MainWindow"
     Height="450"
     Width="800"
     WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <vm:MainWindowViewModel/>
+    </Window.DataContext>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
@@ -26,15 +31,17 @@
             Grid.Column="0"
             Name="ReadImageButton"
             Content="画像参照"
-            Click="ReadImageButton_Click"/>
+            Command="{Binding ReadImageButtonCommand}"/>
         <TextBlock
             Grid.Row="1"
             Grid.Column="0"
-            Name="ImageFilePathTextBlock"/>
+            Name="ImageFilePathTextBlock"
+            Text="{Binding ImageFilePath}"/>
         <Image
             Grid.Row="2"
             Grid.Column="0"
-            Name="TargetImage"/>
+            Name="TargetImage"
+            Source="{Binding TargetImageSource}"/>
 
         <Grid
             Grid.Row="0"
