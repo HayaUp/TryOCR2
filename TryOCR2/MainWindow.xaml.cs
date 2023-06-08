@@ -53,6 +53,11 @@ namespace TryOCR2
             }
         }
 
+        /// <summary>
+        /// RunOcrで利用するSoftwareBitmapを作成する
+        /// </summary>
+        /// <param name="image"></param>
+        /// <returns></returns>
         private async Task<SoftwareBitmap> ConvertSoftwareBitmap(Image image)
         {
             SoftwareBitmap sbitmap = null;
@@ -75,11 +80,16 @@ namespace TryOCR2
             return sbitmap;
         }
 
-        private async Task<OcrResult> RunOcr(SoftwareBitmap sbitmap)
+        /// <summary>
+        /// 画像から文字を認識する
+        /// </summary>
+        /// <param name="software_bitmap"></param>
+        /// <returns></returns>
+        private async Task<OcrResult> RunOcr(SoftwareBitmap software_bitmap)
         {
             //OCRを実行する
             OcrEngine engine = OcrEngine.TryCreateFromLanguage(new Windows.Globalization.Language("ja-JP"));
-            var result = await engine.RecognizeAsync(sbitmap);
+            var result = await engine.RecognizeAsync(software_bitmap);
             return result;
         }
 
