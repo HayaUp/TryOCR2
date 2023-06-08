@@ -58,15 +58,9 @@ namespace TryOCR2
             var ocr = new Model.OCR();
             var software_bitmap = await ocr.ConvertSoftwareBitmap(TargetImage);
             var result = await ocr.Run(software_bitmap);
+            var result_text = ocr.ResultMultilineText(result);
 
-            var message = new StringBuilder();
-            for(int i = 0; i < result.Lines.Count; i++)
-            {
-                var line = result.Lines[i];
-                message.AppendLine(line.Text);
-            }
-
-            CharacterRecognitionResultTextBlock.Text = message.ToString();
+            CharacterRecognitionResultTextBlock.Text = result_text;
         }
 
         private void CopyToClipboardButton_Click(object sender, RoutedEventArgs e)

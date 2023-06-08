@@ -52,5 +52,22 @@ namespace TryOCR2.Model
             var result = await engine.RecognizeAsync(software_bitmap);
             return result;
         }
+
+        /// <summary>
+        /// 文字の認識結果を複数行の文字列にして返す
+        /// </summary>
+        /// <param name="ocr_result"></param>
+        /// <returns></returns>
+        public string ResultMultilineText(OcrResult ocr_result)
+        {
+            var message = new StringBuilder();
+            for(int i = 0; i < ocr_result.Lines.Count; i++)
+            {
+                var line = ocr_result.Lines[i];
+                message.AppendLine(line.Text);
+            }
+
+            return message.ToString();
+        }
     }
 }
