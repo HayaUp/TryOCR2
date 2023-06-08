@@ -20,6 +20,12 @@ namespace TryOCR2.Model
         /// <returns></returns>
         public async Task<SoftwareBitmap> ConvertSoftwareBitmap(Image image)
         {
+            // 画像を参照していない状態で実行するとNull参照によるエラーが発生
+            if(image == null)
+            {
+                return null;
+            }
+
             SoftwareBitmap sbitmap = null;
 
             using(MemoryStream stream = new MemoryStream())
