@@ -33,7 +33,7 @@
             Grid.ColumnSpan="2"
             Name="ReadImageButton"
             Content="画像参照"
-            Command="{Binding ReadImageButtonCommand}"/>
+            Command="{Binding ReadImageCommand}"/>
         <Label
             Grid.Row="1"
             Grid.Column="0"
@@ -69,7 +69,7 @@
                 Grid.Column="0"
                 Name="CharacterRecognitionButton"
                 Content="文字認識"
-                Command="{Binding CharacterRecognitionButtonCommand}"/>
+                Command="{Binding OCRCommand}"/>
             <Button
                 Grid.Column="1"
                 Name="CopyToClipboardButton"

@@ -7,13 +7,13 @@ using System.Windows.Input;
 
 namespace TryOCR2.ViewModel
 {
-    public class ReadImageButtonCommand : ICommand
+    public class ReadImageCommand : ICommand
     {
         private MainWindowViewModel MainWindowViewModel;
 
         public event EventHandler CanExecuteChanged;
 
-        public ReadImageButtonCommand(MainWindowViewModel view_model)
+        public ReadImageCommand(MainWindowViewModel view_model)
         {
             MainWindowViewModel = view_model;
         }

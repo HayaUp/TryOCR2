@@ -8,13 +8,13 @@ using System.Windows.Controls;
 
 namespace TryOCR2.ViewModel
 {
-    public class CharacterRecognitionButtonCommand : ICommand
+    public class OCRCommand : ICommand
     {
         private MainWindowViewModel MainWindowViewModel;
 
         public event EventHandler CanExecuteChanged;
 
-        public CharacterRecognitionButtonCommand(MainWindowViewModel view_model)
+        public OCRCommand(MainWindowViewModel view_model)
         {
             MainWindowViewModel = view_model;
         }

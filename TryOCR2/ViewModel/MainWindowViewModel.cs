@@ -11,13 +11,13 @@ namespace TryOCR2.ViewModel
 {
     public class MainWindowViewModel : INotifyPropertyChanged
     {
-        public ReadImageButtonCommand ReadImageButtonCommand { get; }
-        public CharacterRecognitionButtonCommand CharacterRecognitionButtonCommand { get; }
+        public ReadImageCommand ReadImageCommand { get; }
+        public OCRCommand OCRCommand { get; }
 
         public MainWindowViewModel()
         {
-            ReadImageButtonCommand = new ReadImageButtonCommand(this);
-            CharacterRecognitionButtonCommand = new CharacterRecognitionButtonCommand(this);
+            ReadImageCommand = new ReadImageCommand(this);
+            OCRCommand = new OCRCommand(this);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
