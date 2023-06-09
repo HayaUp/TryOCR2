@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:TryOCR2"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style
+             x:Key="ItemNameLabel"
+             TargetType="Label">
+            <Setter Property="FontSize" Value="10"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
     </Application.Resources>
 </Application>
