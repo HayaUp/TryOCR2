@@ -44,6 +44,8 @@
         <TextBlock
             Grid.Row="1"
             Grid.Column="1"
+            VerticalAlignment="Center"
+            TextTrimming="CharacterEllipsis"
             Name="ImageFilePathTextBlock"
             Text="{Binding ImageFilePath}"/>
         <Image
