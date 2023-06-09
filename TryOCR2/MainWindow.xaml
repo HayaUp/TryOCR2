@@ -46,13 +46,16 @@
             TextTrimming="CharacterEllipsis"
             Name="ImageFilePathTextBlock"
             Text="{Binding ImageFilePath}"/>
-        <Image
+        <Border
             Grid.Row="2"
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            Margin="8 0"
-            Name="TargetImage"
-            Source="{Binding TargetImageSource}"/>
+            Margin="8 0 8 8"
+            Background="WhiteSmoke">
+            <Image
+                Name="TargetImage"
+                Source="{Binding TargetImageSource}"/>
+        </Border>
 
         <Grid
             Grid.Row="0"
@@ -83,7 +86,7 @@
         <ScrollViewer
             Grid.Row="2"
             Grid.Column="2"
-            Margin="8 0">
+            Margin="8 0 8 8">
             <TextBlock Name="CharacterRecognitionResultTextBlock"/>
         </ScrollViewer>
     </Grid>
