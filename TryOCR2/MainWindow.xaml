@@ -44,7 +44,6 @@
             VerticalAlignment="Center"
             TextTrimming="CharacterEllipsis"
             Margin="0 0 8 0"
-            Background="Black"
             Text="{Binding ImageFilePath}"/>
         <Border
             Grid.Row="2"
