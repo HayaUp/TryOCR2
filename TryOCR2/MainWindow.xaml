@@ -69,7 +69,7 @@
                 Grid.Column="0"
                 Name="CharacterRecognitionButton"
                 Content="文字認識"
-                Click="CharacterRecognitionButton_Click"/>
+                Command="{Binding CharacterRecognitionButtonCommand}"/>
             <Button
                 Grid.Column="1"
                 Name="CopyToClipboardButton"
@@ -87,7 +87,9 @@
             Grid.Row="2"
             Grid.Column="2"
             Margin="8 0 8 8">
-            <TextBlock Name="CharacterRecognitionResultTextBlock"/>
+            <TextBlock
+                Name="CharacterRecognitionResultTextBlock"
+                Text="{Binding OCRResultText}"/>
         </ScrollViewer>
     </Grid>
 </Window>

@@ -29,16 +29,6 @@ namespace TryOCR2
             InitializeComponent();
         }
 
-        private async void CharacterRecognitionButton_Click(object sender, RoutedEventArgs e)
-        {
-            var ocr = new Model.OCR();
-            var software_bitmap = await ocr.ConvertSoftwareBitmap(TargetImage);
-            var result = await ocr.Run(software_bitmap);
-            var result_text = ocr.ResultMultilineText(result);
-
-            CharacterRecognitionResultTextBlock.Text = result_text;
-        }
-
         private void CopyToClipboardButton_Click(object sender, RoutedEventArgs e)
         {
             Clipboard.SetText(CharacterRecognitionResultTextBlock.Text);

@@ -12,10 +12,12 @@ namespace TryOCR2.ViewModel
     public class MainWindowViewModel : INotifyPropertyChanged
     {
         public ReadImageButtonCommand ReadImageButtonCommand { get; }
+        public CharacterRecognitionButtonCommand CharacterRecognitionButtonCommand { get; }
 
         public MainWindowViewModel()
         {
             ReadImageButtonCommand = new ReadImageButtonCommand(this);
+            CharacterRecognitionButtonCommand = new CharacterRecognitionButtonCommand(this);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -47,6 +49,20 @@ namespace TryOCR2.ViewModel
                 if(value != _TargetImageSource)
                 {
                     _TargetImageSource = value;
+                    NotifyPropertyChanged();
+                }
+            }
+        }
+
+        private string _OCRResultText;
+        public string OCRResultText
+        {
+            get => _OCRResultText;
+            set
+            {
+                if(value != _OCRResultText)
+                {
+                    _OCRResultText = value;
                     NotifyPropertyChanged();
                 }
             }
