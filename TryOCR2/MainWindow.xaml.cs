@@ -28,10 +28,5 @@ namespace TryOCR2
         {
             InitializeComponent();
         }
-
-        private void CopyToClipboardButton_Click(object sender, RoutedEventArgs e)
-        {
-            Clipboard.SetText(CharacterRecognitionResultTextBlock.Text);
-        }
     }
 }

@@ -31,7 +31,6 @@
             Grid.Row="0"
             Grid.Column="0"
             Grid.ColumnSpan="2"
-            Name="ReadImageButton"
             Content="画像参照"
             Command="{Binding ReadImageCommand}"/>
         <Label
@@ -44,7 +43,6 @@
             Grid.Column="1"
             VerticalAlignment="Center"
             TextTrimming="CharacterEllipsis"
-            Name="ImageFilePathTextBlock"
             Text="{Binding ImageFilePath}"/>
         <Border
             Grid.Row="2"
@@ -52,9 +50,7 @@
             Grid.ColumnSpan="2"
             Margin="8 0 8 8"
             Background="WhiteSmoke">
-            <Image
-                Name="TargetImage"
-                Source="{Binding TargetImageSource}"/>
+            <Image Source="{Binding TargetImageSource}"/>
         </Border>
 
         <Grid
@@ -67,12 +63,10 @@
 
             <Button
                 Grid.Column="0"
-                Name="CharacterRecognitionButton"
                 Content="文字認識"
                 Command="{Binding OCRCommand}"/>
             <Button
                 Grid.Column="1"
-                Name="CopyToClipboardButton"
                 Content="クリップボードへコピー"
                 Command="{Binding CopyToClipboardCommand}"/>
         </Grid>
@@ -87,9 +81,7 @@
             Grid.Row="2"
             Grid.Column="2"
             Margin="8 0 8 8">
-            <TextBlock
-                Name="CharacterRecognitionResultTextBlock"
-                Text="{Binding OCRResultText}"/>
+            <TextBlock Text="{Binding OCRResultText}"/>
         </ScrollViewer>
     </Grid>
 </Window>
