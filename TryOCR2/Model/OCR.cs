@@ -13,6 +13,13 @@ namespace TryOCR2.Model
 {
     public class OCR
     {
+        private readonly string NO_RESULT_TEXT;
+
+        public OCR()
+        {
+            NO_RESULT_TEXT = "認識できる文字はありません。";
+        }
+
         /// <summary>
         /// Runで利用するSoftwareBitmapをImageから変換する
         /// </summary>
@@ -74,7 +81,7 @@ namespace TryOCR2.Model
         {
             if(ocr_result == null)
             {
-                return "認識できる文字はありません。";
+                return NO_RESULT_TEXT;
             }
 
             var message = new StringBuilder();
@@ -84,7 +91,7 @@ namespace TryOCR2.Model
                 message.AppendLine(line.Text);
             }
 
-            return message.ToString();
+            return message.ToString().Length == 0 ? NO_RESULT_TEXT : message.ToString();
         }
     }
 }
