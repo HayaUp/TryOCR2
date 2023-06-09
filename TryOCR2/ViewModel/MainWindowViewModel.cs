@@ -13,11 +13,13 @@ namespace TryOCR2.ViewModel
     {
         public ReadImageCommand ReadImageCommand { get; }
         public OCRCommand OCRCommand { get; }
+        public CopyToClipboardCommand CopyToClipboardCommand { get; }
 
         public MainWindowViewModel()
         {
             ReadImageCommand = new ReadImageCommand(this);
             OCRCommand = new OCRCommand(this);
+            CopyToClipboardCommand = new CopyToClipboardCommand(this);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
