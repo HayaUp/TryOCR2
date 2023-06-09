@@ -7,7 +7,7 @@
     xmlns:local="clr-namespace:TryOCR2"
     xmlns:vm="clr-namespace:TryOCR2.ViewModel"
     mc:Ignorable="d"
-    Title="MainWindow"
+    Title="画像から文字を認識する"
     Height="450"
     Width="800"
     WindowStartupLocation="CenterScreen">
@@ -44,6 +44,7 @@
             VerticalAlignment="Center"
             TextTrimming="CharacterEllipsis"
             Margin="0 0 8 0"
+            Background="Black"
             Text="{Binding ImageFilePath}"/>
         <Border
             Grid.Row="2"
