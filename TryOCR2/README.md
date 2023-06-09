@@ -20,7 +20,8 @@
 
 ## 問題
 
-- Nugetで`Microsoft.Windows.SDK.Contracts`をインストールしたら次のエラーが発生した
+### Nugetで`Microsoft.Windows.SDK.Contracts`をインストールしたら次のエラーが発生した
+
 ```
 重大度レベル	コード	説明	プロジェクト	ファイル	行	抑制状態
 エラー	NETSDK1135	SupportedOSPlatformVersion 10.0.22621.0 を TargetPlatformVersion 7.0 より大きくすることはできません。	TryOCR2	C:\Program Files\dotnet\sdk\5.0.416\Sdks\Microsoft.NET.Sdk\targets\Microsoft.NET.TargetFrameworkInference.targets	185	
@@ -32,6 +33,14 @@
     - https://learn.microsoft.com/ja-jp/windows/apps/desktop/modernize/desktop-to-uwp-enhance
   - Windows 10 リリース情報
     - https://learn.microsoft.com/ja-jp/windows/release-health/release-information
+
+### 文字認識の種類を英語にしたらNull参照になった
+
+- 原因は英語の言語パックをインストールしていなかったから
+  - 【C#】Windows10のOCRを使用する
+    - https://kakusuke98.hatenablog.com/entry/2019/10/02/223643
+  - Windows 10 の言語パックのダウンロード方法は？
+    - https://solution.fielding.co.jp/column/it/itcol04/202011_04/
 
 ## 参考
 
