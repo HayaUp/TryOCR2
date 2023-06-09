@@ -91,6 +91,7 @@ namespace TryOCR2.Model
                 message.AppendLine(line.Text);
             }
 
+            // 認識できた文字が無い場合に空文字を返すと、文字認識の処理をしたのか否か判断に困った
             return message.ToString().Length == 0 ? NO_RESULT_TEXT : message.ToString();
         }
     }
