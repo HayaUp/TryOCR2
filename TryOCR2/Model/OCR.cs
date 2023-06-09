@@ -66,8 +66,8 @@ namespace TryOCR2.Model
             }
 
             //OCRを実行する
-            //OcrEngine engine = OcrEngine.TryCreateFromLanguage(new Windows.Globalization.Language("ja-JP"));
-            OcrEngine engine = OcrEngine.TryCreateFromLanguage(new Windows.Globalization.Language("en"));
+            OcrEngine engine = OcrEngine.TryCreateFromLanguage(new Windows.Globalization.Language("ja-JP"));
+            //OcrEngine engine = OcrEngine.TryCreateFromLanguage(new Windows.Globalization.Language("en"));
             var result = await engine.RecognizeAsync(software_bitmap);
             return result;
         }
